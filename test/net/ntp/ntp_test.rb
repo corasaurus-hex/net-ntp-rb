@@ -52,7 +52,7 @@ class Net::NTP::NTPTest < Test::Unit::TestCase
     ntpdate_output = `ntpdate -p1 -q #{POOL} 2>/dev/null`
     omit "ntpdate not available - cannot run this test right now" unless $?.success?
 
-    match = ntpdate_output.match(/offset (-?\d+\.\d+) sec/)
+    match = ntpdate_output.match(/offset ([-+]?\d+\.\d+)/)
 
     if match
       expected = Float match[1]
