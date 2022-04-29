@@ -1,30 +1,31 @@
-require 'rubygems'
-require 'rake'
-require 'rake/testtask'
+require "rubygems"
+require "rake"
+require "rake/testtask"
+require "standard/rake"
 
 Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/*_test.rb'
+  test.libs << "lib" << "test"
+  test.pattern = "test/**/*_test.rb"
   test.verbose = true
 end
 
-task :default => :test
+task default: :test
 
-require 'rdoc/task'
-require_relative 'lib/net/ntp/version.rb'
+require "rdoc/task"
+require_relative "lib/net/ntp/version"
 
 Rake::RDocTask.new do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
+  rdoc.rdoc_dir = "rdoc"
   rdoc.title = "net-ntp #{Net::NTP::VERSION}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+  rdoc.rdoc_files.include("README*")
+  rdoc.rdoc_files.include("lib/**/*.rb")
 end
 
 begin
-  require 'rcov/rcovtask'
+  require "rcov/rcovtask"
   Rcov::RcovTask.new do |test|
-    test.libs << 'test'
-    test.pattern = 'test/**/*_test.rb'
+    test.libs << "test"
+    test.pattern = "test/**/*_test.rb"
     test.verbose = true
     test.rcov_opts << '--exclude "gems/*"'
   end

@@ -1,2 +1,2 @@
-require 'net/ntp/ntp'
-require 'net/ntp/version'
+require "net/ntp/ntp"
+require "net/ntp/version"

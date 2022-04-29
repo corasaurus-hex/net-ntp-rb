@@ -52,8 +52,10 @@ class Net::NTP::NTPTest < Test::Unit::TestCase
     ntpdate_output = `ntpdate -p1 -q #{POOL} 2>/dev/null`
     omit "ntpdate not available - cannot run this test right now" unless $?.success?
 
-    if m = ntpdate_output.match(/offset (-?\d+\.\d+) sec/)
-      expected = Float m[1]
+    match = ntpdate_output.match(/offset (-?\d+\.\d+) sec/)
+
+    if match
+      expected = Float match[1]
       result = @result_1
 
       # Expect these offsets to be very close -- within 0.5 or 5% for test purposes.
