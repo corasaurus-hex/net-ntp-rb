@@ -15,7 +15,9 @@ Gem::Specification.new do |s|
   s.files = Dir.glob("lib/**/*") + %w[LICENSE README.markdown Rakefile]
   s.require_path = "lib"
   s.required_ruby_version = ">= 2.7"
-  s.add_development_dependency "standard"
-  s.add_development_dependency "rake"
-  s.add_development_dependency "test-unit"
+  s.add_development_dependency "standard", "~> 1.11.0"
+  s.add_development_dependency "rake", "~> 13.0.6"
+  s.add_development_dependency "test-unit", "~> 3.5.3"
+  s.add_development_dependency "rspec", "~> 3.11.0"
+  s.add_development_dependency "minitest", "~> 5.15.0"
 end
